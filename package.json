@@ -1,0 +1,55 @@
+{
+  "name": "iti-network",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "webpack --config config/webpack.prod.config.js  --progress --profile --bail",
+    "watch": "npm run build -- --watch",
+    "server": "webpack-dev-server --config config/webpack.dev.config.js --inline --progress --watch --content-base src",
+    "start": "npm run server"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@angular/common": "2.4.2",
+    "@angular/compiler": "2.4.2",
+    "@angular/compiler-cli": "2.4.2",
+    "@angular/core": "2.4.2",
+    "@angular/forms": "2.4.2",
+    "@angular/http": "2.4.2",
+    "@angular/platform-browser": "2.4.2",
+    "@angular/platform-browser-dynamic": "2.4.2",
+    "@angular/platform-server": "2.4.2",
+    "@angular/router": "3.4.2",
+    "angular2-jwt": "0.1.27",
+    "bootstrap": "^3.3.7",
+    "core-js": "^2.4.1",
+    "reflect-metadata": "0.1.9",
+    "rxjs": "5.0.2",
+    "zone.js": "~0.7.4",
+    "socket.io-client": "1.7.2",
+    "ng2-bootstrap": "1.1.17"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.54",
+    "@types/socket.io-client": "^1.4.29",
+    "angular2-router-loader": "^0.3.4",
+    "angular2-template-loader": "0.6.0",
+    "awesome-typescript-loader": "^2.2.4",
+    "node-sass": "^4.1.1",
+    "sass-loader": "^4.1.1",
+    "file-loader": "0.9.0",
+    "css-loader": "^0.26.1",
+    "html-webpack-plugin": "^2.24.1",
+    "raw-loader": "^0.5.1",
+    "to-string-loader": "^1.1.5",
+    "typescript": "2.1.1",
+    "webpack": "2.1.0-beta.27",
+    "webpack-dev-server": "2.1.0-beta.11",
+    "webpack-merge": "^1.1.1",
+    "webpack-md5-hash": "^0.0.5"
+  },
+  "keywords": [
+    "Angular2",
+    "intech"
+  ]
+}
