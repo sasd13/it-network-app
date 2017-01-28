@@ -15,8 +15,7 @@
         </div>
     </div>
     <div class="form-group">
-        <button [disabled]="loading" class="btn btn-primary">Se Connecter</button>
-       
+        <button [disabled]="!ngForm.form.valid" class="btn btn-primary">Se Connecter</button>     
         <a [routerLink]="['/register']" class="btn btn-link">S'enregistrer</a>
     </div>
 </form>

@@ -27,8 +27,7 @@ export class RegisterComponent {
          // TODO promise returned:
          this.registrationService.register(this.model)
              .then( data => {
-                //  this.loading = true;
-                 this.router.navigate(['/login']);
+                this.router.navigate(['/login']);
         });
     }
 
