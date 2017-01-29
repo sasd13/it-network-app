@@ -1,5 +1,5 @@
 <h2>Login</h2>
-<form name="form" #f="ngForm" (ngSubmit)="login()">
+<form name="form" (ngSubmit)="login()">
     <div class="form-group" >
         <label for="username">Username</label>
         <input type="text" class="form-control" name="username" [(ngModel)]="model.username" required />
@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="form-group">
-        <button [disabled]="!ngForm.form.valid" class="btn btn-primary">Se Connecter</button>     
+        <button [disabled]="!ngForm.form.valid" class="btn btn-primary" type="submit">Se Connecter</button>     
         <a [routerLink]="['/register']" class="btn btn-link">S'enregistrer</a>
     </div>
 </form>

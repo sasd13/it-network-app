@@ -1,9 +1,12 @@
 <div class="social-app-feed">
     <!-- Itérer sur les postes-->
-    <!--<post></post>-->
+    <div *ngFor="let postItem of items">
+         <post [post]="postItem"></post>
+    </div>
 </div>
 <div class="social-app-inputs">
-    <user-inputs [channelId]="channelId"></user-inputs>
+    <user-inputs [channelId]="channelId" (sendPost)="refreshPosts($event)"></user-inputs>
+    <!--<user-inputs [channelId]="channelId"></user-inputs>-->
 </div>
 <style>
     :host {

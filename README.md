@@ -46,7 +46,7 @@
 #### Level I
 
 1. Afficher la liste des channels dans le menu
-2. Pouvoir créer un nouveau channel
+2. Pouvoir créer un nouveau channel                 
 3. Naviguer sur un channel au clic dans le menu
 
 #### Level II

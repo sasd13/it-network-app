@@ -1,4 +1,4 @@
-import { Component, ViewChild  } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserLogin } from 'models';
 import { NgForm } from '@angular/forms';
@@ -9,14 +9,14 @@ import { AuthenticationService } from '../../services/index';
     selector: 'login',
     templateUrl: 'login.html'
 })
-export class LoginComponent  {
+export class LoginComponent {
     model = new UserLogin();
     @ViewChild(NgForm)
     ngForm: NgForm;
     constructor(
             private authService: AuthenticationService,
             private router : Router
-    ) { }
+    ) {}
 
     login() {
         if (this.ngForm.form.invalid) {

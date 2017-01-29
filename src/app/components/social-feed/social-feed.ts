@@ -28,5 +28,16 @@ export class SocialFeedComponent implements OnInit {
                     });
             } );
     }
+
+    refreshPosts(data) {
+        this.route.params
+            .subscribe((params) => {
+               this.postService
+                    .getAll(params['id'])
+                    .then((items) => {
+                        this.items = items
+                    });
+            })
+    }
     
 }

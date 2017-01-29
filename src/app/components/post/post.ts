@@ -8,6 +8,8 @@ import { PostService, PostSocketService, LoggedUser, MessageParser } from 'servi
 })
 export class PostComponent { 
     @Input() post: Post;
+    postDate : String;
+    // p : Post;
     
     constructor(
         private postSocket: PostSocketService, 
@@ -18,6 +20,8 @@ export class PostComponent {
 
     ngOnInit() {
         this.post.content = this.parser.parse(this.post);
+        this.postDate = new Date(this.post.creationTime).toLocaleString();
+        // this.p = this.post;
     }
 
 }

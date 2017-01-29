@@ -59,7 +59,7 @@ export class RegisterComponent {
             if (control && control.dirty && !control.valid) {
                 const messages = this.validationMessages[field];
                 for (const key in control.errors) {
-                this.formErrors[field] += messages[key] + ' ';
+                    this.formErrors[field] += messages[key] + ' ';
                 }
             }
         }

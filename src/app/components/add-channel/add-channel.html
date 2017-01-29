@@ -1,7 +1,7 @@
 <button class="btn btn-default" (click)="modal.show()">Add channel</button>
 <div class="modal fade" bsModal #modal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form class="modal-content" name="form" (ngSubmit)="save()"  #f="ngForm">
+        <form class="modal-content" name="form" (ngSubmit)="save(); f.reset()" #f="ngForm">
             <div class="modal-header">
                 <button type="button" class="close" aria-label="Close" (click)="modal.hide()">
                     <span aria-hidden="true">&times;</span>

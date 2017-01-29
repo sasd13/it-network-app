@@ -15,7 +15,7 @@ export class AddChannelComponent {
     @ViewChild(NgForm) 
     ngForm:NgForm;
 
-    // event emitted to parent
+    // event emitted to parent <menu>
     @Output() add = new EventEmitter<any>();
     model =  {name: ''};
     
@@ -30,7 +30,7 @@ export class AddChannelComponent {
             this.modal.hide();
             this.channelService.add(this.model.name).
                 then(success => {
-                    this.add.emit(this.model);
+                    this.add.emit();
                 },
                     error =>{
                     // TODO treat addChannel error
