@@ -3,7 +3,7 @@
     <add-channel (add)="addChannel($event)"></add-channel>
     <!-- itérer et fournir l'id -->
     <div *ngFor="let channel of channels">
-        <a  class="list-group-item" [routerLink]="[ '/channel/'  ]" >
+        <a  class="list-group-item" [routerLink]="['/channel/', channel.id]" >
             {{channel.name}}
         </a>
     </div>
