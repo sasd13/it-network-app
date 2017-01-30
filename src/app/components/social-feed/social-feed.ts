@@ -32,7 +32,6 @@ export class SocialFeedComponent implements OnInit {
             this.postService.getAll(this.channelId)
                 .then((items) => {
                     this.items = items;
-                    console.log(this.items.length);
             },(error)=>{
                 console.log("ERROR: get posts via Web Socket");
             });
@@ -45,7 +44,8 @@ export class SocialFeedComponent implements OnInit {
                this.postService
                     .getAll(params['id'])
                     .then((items) => {
-                        this.items = items
+                        this.items = items;
+                        console.log("SocialFeedComponent.refreshPosts()");
                     });
             })
     }

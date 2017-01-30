@@ -22,6 +22,7 @@ export class UserInputsComponent {
         this.postervice.post(this.channelId, this.message).
             then( succes => {
                 this.sendPost.emit();
+                console.log("UserInputsComponent.send()");
             },
             error => {
                 // TODO

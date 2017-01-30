@@ -5,8 +5,7 @@
     </div>
 </div>
 <div class="social-app-inputs">
-    <user-inputs [channelId]="channelId" (sendPost)="refreshPosts($event)"></user-inputs>
-    <!--<user-inputs [channelId]="channelId"></user-inputs>-->
+    <user-inputs [channelId]="channelId" (sendPost)="refreshPosts()"></user-inputs>
 </div>
 <style>
     :host {
