@@ -24,7 +24,6 @@ export class UserInputsComponent {
             this.postService.comment(this.postToComment, this.message).
                 then( succes => {
                     this.sendPost.emit();
-                console.log("UserInputsComponent.send()");
                 },
                 error => {
                     // TODO

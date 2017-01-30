@@ -43,6 +43,16 @@ export class SocialFeedComponent implements OnInit {
                 console.log("ERROR: get posts via Web Socket");
             });
         })
+        // show comments received via WebSocket
+        this.postSocket.onComment( (post: Post) => {
+            this.postService.getAll(this.channelId)
+                .then((items) => {
+                    this.items = items;
+            },(error)=>{
+                console.log("ERROR: get comments via Web Socket");
+            });
+        })
+        
     }
 
     refreshPosts(data) {
