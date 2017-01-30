@@ -61,7 +61,7 @@
 1. Afficher les postes reçues pour le channel courant
 2. Afficher l'auteur des messages
 3. Afficher la date du postes
-4. Insérer les nouveaux postes reçues via WebSocket
+4. Insérer les nouveaux postes reçues via WebSocket                 
 5. Afficher une image si le message contient une url vers une image
 6. Afficher une video si le message contient une url vers une vidéo (https://www.html5rocks.com/en/tutorials/video/basics/devstories.mp4)
 7. Afficher le player de youtube si le message contient un lien youtube
@@ -77,7 +77,7 @@
 ### Commentaires
 
 ### Level I
-1. Pouvoir commenter un postes
+1. Pouvoir commenter un poste
 2. Afficher les commentaires d'un poste 
 3. Afficher l'auteur du commentaires
 4. Insérer les nouveaux commentaires reçues via WebSocket

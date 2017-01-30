@@ -4,17 +4,17 @@
     <div class="username">
         {{post.user.username}}
     </div>
-     <div class="date">
-        {{postDate}}
-    </div>
     <div class="right">
+        <div class="date">{{postDate}}</div>        
         <div class="actions"><a [class.liked]="post.liked"><i class="glyphicon glyphicon-heart"></i></a></div>
     </div>
 </div>
 <div class="body">
     <pre class="message">{{post.message}}</pre>
     <div *ngIf="post.content">
-
+        <div class="image" *ngIf="post.content.type === 'image'">
+             <img src="https://en.wikipedia.org/wiki/Sunset#/media/File:Sunset_2007-1.jpg" />
+        </div>
     </div>
 </div>
 <div class="footer">
@@ -48,7 +48,7 @@
         justify-content: flex-end;
     }
     .right > .date {
-        padding-left: 10px;
+        padding-right: 50px;
     }
     .actions > a {
         color: white;

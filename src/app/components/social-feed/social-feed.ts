@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostSocketService, PostService } from 'services';
 import { Post, PostContent } from 'models';
@@ -14,7 +14,7 @@ export class SocialFeedComponent implements OnInit {
     constructor(
         private postService: PostService, 
         private postSocket: PostSocketService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
     ) {}
 
     ngOnInit() {
@@ -26,7 +26,17 @@ export class SocialFeedComponent implements OnInit {
                     .then((items) => {
                         this.items = items
                     });
-            } );
+            });
+    // show messages received via WebSocket
+        this.postSocket.onPost( (post: Post) => {
+            this.postService.getAll(this.channelId)
+                .then((items) => {
+                    this.items = items;
+                    console.log(this.items.length);
+            },(error)=>{
+                console.log("ERROR: get posts via Web Socket");
+            });
+        })
     }
 
     refreshPosts(data) {
