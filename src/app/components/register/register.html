@@ -15,6 +15,15 @@
         </div>
     </div>
     <div class="form-group">
+        <!--http://vignette4.wikia.nocookie.net/mrmen/images/5/52/Small.gif/revision/latest?cb=20100731114437-->
+        <label for="pictureUrl">Image URL</label>
+        <input type="text" class="form-control" name="pictureUrl" id="pictureUrl"  [(ngModel)]="model.pictureUrl" />
+    </div>
+    <div class="form-group">
+        <label for="email">email</label>
+        <input type="text" class="form-control" name="email" id="email"  [(ngModel)]="model.email" />
+    </div>
+    <div class="form-group">
         <button [disabled]="!ngForm.form.valid" class="btn btn-primary">S'enregistrer</button>
         <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
     </div>
