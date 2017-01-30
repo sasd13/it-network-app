@@ -27,7 +27,7 @@ export class SocialFeedComponent implements OnInit {
                         this.items = items
                     });
             });
-    // show messages received via WebSocket
+        // show messages received via WebSocket
         this.postSocket.onPost( (post: Post) => {
             this.postService.getAll(this.channelId)
                 .then((items) => {

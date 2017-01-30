@@ -20,6 +20,7 @@ export class PostComponent {
 
     ngOnInit() {
         this.post.content = this.parser.parse(this.post);
+        console.log(this.post.content.type === 'image');
         this.postDate = new Date(this.post.creationTime).toLocaleString();
         // this.p = this.post;
     }

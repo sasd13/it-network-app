@@ -11,6 +11,7 @@ const youtubeRegex =  /(http[s]?:\/\/)?www\.(?:youtube\.com\/\S*(?:(?:\/e(?:mbed
     // https://www.youtube.com/watch?v=wuCK-oiE3rM
 const pictureRegex = /http[s]?:\/\/.+\.(jpeg|png|jpg|gif)/gmi;
     // https://en.wikipedia.org/wiki/Sunset#/media/File:Sunset_2007-1.jpg
+    // http://www.robocup2016.org/media/leagues/eindhoven/albert-van-bremen/robocup-soccer-small-size_Albert-van-Breemen-2_R220X0.jpg
 const videoRegex = /http[s]?:\/\/.+\.(mp4|ogg|webm)/gmi;
     // 
 
@@ -33,6 +34,7 @@ export class MessageParser {
                     super(type,lien);
                 }
             }
+            console.log(type + " : " + lien);
             return new ImageContent(type, lien);
         }
         if (videoMatch) {
