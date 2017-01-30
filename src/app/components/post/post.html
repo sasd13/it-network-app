@@ -13,12 +13,16 @@
     <pre class="message">{{post.message}}</pre>
     <div *ngIf="post.content">
         <div class="image" *ngIf="post.content.type === 'image'">
-             <img src="{{post.content.lien}}" />
+             <!--<img src="{{post.content.lien}}" />-->
         </div>
     </div>
+    <button class="btn btn-default" [disabled]="!post.message" (click)="comment()">Commenter</button>
 </div>
 <div class="footer">
-    
+    <!-- Itérer sur les commentaires -->
+    <div *ngFor="let comment of post.comments">
+        <post-comment [comment]="comment"></post-comment>
+    </div>
 </div>
 <style>
     :host {

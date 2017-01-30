@@ -1,15 +1,15 @@
-import { Component, Input } from '@angular/core';
-import { Post } from 'models';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Post, Comment } from 'models';
 import { PostService, PostSocketService, LoggedUser, MessageParser } from 'services';
 
 @Component({
   selector: 'post',
   templateUrl: 'post.html'
 })
-export class PostComponent { 
+export class PostComponent {
     @Input() post: Post;
     postDate : String;
-    // p : Post;
+    @Output() inComment = new EventEmitter<any>();
     
     constructor(
         private postSocket: PostSocketService, 
@@ -20,9 +20,10 @@ export class PostComponent {
 
     ngOnInit() {
         this.post.content = this.parser.parse(this.post);
-        console.log(this.post.content.type === 'image');
         this.postDate = new Date(this.post.creationTime).toLocaleString();
-        // this.p = this.post;
     }
 
+    comment() {
+        this.inComment.emit(this.post);
+    }
 }
