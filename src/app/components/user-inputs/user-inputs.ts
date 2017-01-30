@@ -8,25 +8,35 @@ import { ActivatedRoute } from '@angular/router';
     templateUrl: 'user-inputs.html'
 })
 export class UserInputsComponent {
-
+    @Input() postLabel: string;
     @Input() channelId: string;
     message:string;
     // event emitted to parent <social-feed>
     @Output() sendPost = new EventEmitter<any>();
+    @Input() postToComment: Post;
 
     constructor(
-        private postervice: PostService
+        private postService: PostService
     ) {}
 
     send() {
-        this.postervice.post(this.channelId, this.message).
-            then( succes => {
-                this.sendPost.emit();
+        if (this.postToComment) {
+            this.postService.comment(this.postToComment, this.message).
+                then( succes => {
+                    this.sendPost.emit();
                 console.log("UserInputsComponent.send()");
-            },
-            error => {
-                // TODO
-            });
-
+                },
+                error => {
+                    // TODO
+                });
+        } else {
+            this.postService.post(this.channelId, this.message).
+                then( succes => {
+                    this.sendPost.emit();
+                },
+                error => {
+                    // TODO
+                });
+        }
     }
 }

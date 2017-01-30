@@ -1,15 +1,20 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostSocketService, PostService } from 'services';
 import { Post, PostContent } from 'models';
+
+const LABEL_POSTER = "Poster";
+const LABEL_COMMENTER = "Commenter";
 
 @Component({
   selector: 'social-feed', 
   templateUrl: 'social-feed.html'
 })
-export class SocialFeedComponent implements OnInit { 
+export class SocialFeedComponent implements OnInit {
     items: Post[] = [];
     channelId: string;
+    postToComment: Post;
+    postLabel: string;
 
     constructor(
         private postService: PostService, 
@@ -18,6 +23,8 @@ export class SocialFeedComponent implements OnInit {
     ) {}
 
     ngOnInit() {
+        this.postLabel = LABEL_POSTER;
+
         this.route.params
             .subscribe((params) => {
                 this.channelId = params['id'];
@@ -45,9 +52,13 @@ export class SocialFeedComponent implements OnInit {
                     .getAll(params['id'])
                     .then((items) => {
                         this.items = items;
-                        console.log("SocialFeedComponent.refreshPosts()");
+                        this.inComment(null);
                     });
             })
     }
-    
+
+    inComment(data) {
+        this.postLabel = data ? LABEL_COMMENTER : LABEL_POSTER;
+        this.postToComment = data;
+    }    
 }
