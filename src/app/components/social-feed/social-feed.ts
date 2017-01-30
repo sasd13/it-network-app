@@ -39,6 +39,7 @@ export class SocialFeedComponent implements OnInit {
             this.postService.getAll(this.channelId)
                 .then((items) => {
                     this.items = items;
+                    this.inComment(null);
                     console.log(this.items.length);
             },(error)=>{
                 console.log("ERROR: get posts via Web Socket");
