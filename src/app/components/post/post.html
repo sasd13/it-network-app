@@ -12,8 +12,22 @@
 <div class="body">
     <pre class="message">{{post.message}}</pre>
     <div *ngIf="post.content">
-        <div class="image" *ngIf="post.content.type === 'image'">
-             <img src="{{post.content.lien}}" />
+        <div class="image" *ngIf="post.content.type === 'picture'">
+            <a href="{{post.content.value.mediaUrl}}" target="_blank"> <img src="{{post.content.value.mediaUrl}}" width="200" height="150"/></a>
+        </div>
+        <div>
+            <a href="{{post.content.value.mediaUrl}}" target="_blank"> 
+                <video class="video" width="320" height="240" autoplay>
+                    <source src="{{post.content.value.mediaUrl}}" type="video/mp4">
+                    <source src="{{post.content.value.mediaUrl}}" type="video/ogv">
+                    <source src="{{post.content.value.mediaUrl}}" type="video/webm">
+                </video>
+            </a>
+        </div>
+        <div class="image" *ngIf="post.content.type === 'youtube'">
+                <object width="320" height="240"
+                    data="{{post.content.value.mediaUrl}}">
+                </object >
         </div>
     </div>
 </div>
