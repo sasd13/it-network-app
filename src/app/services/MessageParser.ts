@@ -6,56 +6,48 @@ import {
     VideoPostContent
 }
 from '../models';
+// import { DomSanitizer} from '@angular/platform-browser';
+// import { SafeResourceUrl} from '@angular/platform-browser';
+// import { Pipe, PipeTransform } from '@angular/core';
 
-const youtubeRegex =  /(http[s]?:\/\/)?www\.(?:youtube\.com\/\S*(?:(?:\/e(?:mbed))?\/|watch\/?\?(?:\S*?&?v\=))|youtu\.be\/)([a-zA-Z0-9_-]{6,11})/gmi;
-    // https://www.youtube.com/watch?v=wuCK-oiE3rM
-const pictureRegex = /http[s]?:\/\/.+\.(jpeg|png|jpg|gif)/gmi;
+const youtubeReg =  /(http[s]?:\/\/)?www\.(?:youtube\.com\/\S*(?:(?:\/e(?:mbed))?\/|watch\/?\?(?:\S*?&?v\=))|youtu\.be\/)([a-zA-Z0-9_-]{6,11})/mi;
+    // https://youtu.be/sgUv1sts0zY
+const pictureRegex = /http[s]?:\/\/.+\.(jpeg|png|jpg|gif)/mi;
     // https://en.wikipedia.org/wiki/Sunset#/media/File:Sunset_2007-1.jpg
     // http://www.robocup2016.org/media/leagues/eindhoven/albert-van-bremen/robocup-soccer-small-size_Albert-van-Breemen-2_R220X0.jpg
-const videoRegex = /http[s]?:\/\/.+\.(mp4|ogg|webm)/gmi;
-    // 
-
+const videoRegex = /http[s]?:\/\/.+\.(mp4|ogg|webm)/mi;
+    // http://camendesign.com/code/video_for_everybody/test.html
+    // http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4
+    // http://clips.vorwaerts-gmbh.de/big_buck_bunny.webm
+const youtubeRegex = /^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+$/mi;
 const youtube = "https://youtu.be/";
 
+// @Pipe({ name: 'safe' })
+// export class MessageParser implements PipeTransform {
 export class MessageParser {
 
-    parse(post: Post): PostContent<any> {
-        const youtubeMatch = youtubeRegex.exec(post.message);
-        const pictureMatch = pictureRegex.exec(post.message);
-        const videoMatch = videoRegex.exec(post.message);
-        let lien : string;
-        let type : string;
+    // constructor(private sanitizer: DomSanitizer) {}
+    
+    // transform(url) {
+    //     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    // }
 
+    parse(post: Post): PostContent<any> {
+        let youtubeMatch = youtubeRegex.exec(post.message);
+        let pictureMatch = pictureRegex.exec(post.message);
+        let videoMatch = videoRegex.exec(post.message);
+        let value : string;
+        let type : string;
         if (pictureMatch) {
-            lien = pictureMatch[0];
-            type = "image";
-            class ImageContent extends PostContent<string> {
-                constructor(t : string , l : string) {
-                    super(type,lien);
-                }
-            }
-            console.log(type + " : " + lien);
-            return new ImageContent(type, lien);
+            return new PicturePostContent(pictureMatch[0]);
         }
-        if (videoMatch) {
-            lien = videoMatch[0];
-            type = "video";
-            class VideoContent extends PostContent<string> {
-                constructor(t : string , l : string) {
-                    super(type,lien);
-                }
-            }
-            return new VideoContent(type, lien);
+        else if (videoMatch) {
+            return new VideoPostContent(videoMatch[0]);
         }
-        if (youtubeMatch) {
-            lien = youtubeMatch[0];
-            type = "youtube";
-            class YouTubeContent extends PostContent<string> {
-                constructor(t : string , l : string) {
-                    super(type,lien);
-                }
-            }
-            return new YouTubeContent(type, lien);
+        else if (youtubeMatch) {
+             return new YoutubePostContent(
+                youtubeMatch[0]
+             );
         }
         return null;
     }
