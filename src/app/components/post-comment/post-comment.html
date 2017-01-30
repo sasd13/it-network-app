@@ -11,10 +11,24 @@
 <div class="body">
     <pre class="message">{{comment.message}}</pre>
     <div *ngIf="comment.content">
-        <div class="image" *ngIf="comment.content.type === 'image'">
-             <!--<img src="{{comment.content.lien}}" />-->
+            <div class="image" *ngIf="comment.content.type === 'picture'">
+                <a href="{{comment.content.value.mediaUrl}}" target="_blank"> <img src="{{comment.content.value.mediaUrl}}" width="200" height="150"/></a>
+            </div>
+            <div>
+                <a href="{{comment.content.value.mediaUrl}}" target="_blank"> 
+                    <video class="video" width="320" height="240" autoplay>
+                        <source src="{{comment.content.value.mediaUrl}}" type="video/mp4">
+                        <source src="{{comment.content.value.mediaUrl}}" type="video/ogv">
+                        <source src="{{comment.content.value.mediaUrl}}" type="video/webm">
+                    </video>
+                </a>
+            </div>
+            <div class="image" *ngIf="comment.content.type === 'youtube'">
+                    <object width="320" height="240"
+                        data="{{comment.content.value.mediaUrl}}">
+                    </object >
+            </div>
         </div>
-    </div>
 </div>
 <div class="footer">
     
