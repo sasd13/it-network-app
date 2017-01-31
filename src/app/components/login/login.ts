@@ -27,7 +27,7 @@ export class LoginComponent {
                 this.router.navigate(['/']);
             },
                 error =>{
-                // TODO treat identification error
+                this.authenticationError("authentication");
             });
     }
 
@@ -52,25 +52,37 @@ export class LoginComponent {
         const form = this.ngForm.form;
 
         for (const field in this.formErrors) {
-        // clear previous error message (if any)
-        this.formErrors[field] = '';
-        const control = form.get(field);
-
+            // clear previous error message (if any)
+            this.formErrors[field] = '';
+            const control = form.get(field);
             if (control && control.dirty && !control.valid) {
                 const messages = this.validationMessages[field];
                 for (const key in control.errors) {
-                this.formErrors[field] += messages[key] + ' ';
+                    this.formErrors[field] += messages[key] + ' ';
                 }
             }
         }
     }
 
+    authenticationError(error) {
+        if (!this.ngForm) { return; }
+        const form = this.ngForm.form;
+         // clear previous error message (if any)
+        for (const field in this.formErrors) {
+            this.formErrors[field] = '';
+            const messages = this.validationMessages[field];
+            this.formErrors[field] += messages[error] + ' ';
+        }
+    }
+
     validationMessages = {
         'username': {
-            'required': 'Username is required.'
+            'required': 'Username is required.',
+            'authentication' : 'Verify your username'
         },
         'password': {
-            'required': 'Password is required.'
+            'required': 'Password is required.',
+            'authentication' : 'Verify your password'
         }
     };
 }

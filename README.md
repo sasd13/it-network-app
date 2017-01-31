@@ -25,8 +25,8 @@
 
 #### Level II
 
-4. Afficher les messages d'erreurs de validation pour chaque champs
-5. Afficher un message si le login à échoué
+4. Afficher les messages d'erreurs de validation pour chaque champs         OK
+5. Afficher un message si le login à échoué                                 OK
 
 ### Register
 
@@ -37,8 +37,8 @@
 3. En cas de succès, rediriger l'utilisateur sur /login                          OK
 
 #### Level II
-4. Afficher les messages d'erreurs de validation  pour chaque champs
-5. Gérer les username déjà utilisés
+4. Afficher les messages d'erreurs de validation  pour chaque champs            OK
+5. Gérer les username déjà utilisés                                             
 
 
 ### Channel
