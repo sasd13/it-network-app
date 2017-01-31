@@ -46,7 +46,8 @@ import { authenticatedHttpFactory } from './services/AuthenticatedHttp'
       provide: services.AuthenticatedHttp,
       useFactory: authenticatedHttpFactory,
       deps: [Http, RequestOptions, services.AuthenticationService]
-    }
+    },
+    services.NotificationService,
   ],
   bootstrap: [ components.AppComponent ]
 })

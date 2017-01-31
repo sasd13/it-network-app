@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostSocketService, PostService } from 'services';
-import { Post, PostContent } from 'models';
+import { Post, PostContent, Comment } from 'models';
 
 @Component({
   selector: 'social-feed', 
@@ -15,7 +15,7 @@ export class SocialFeedComponent implements OnInit {
     constructor(
         private postService: PostService, 
         private postSocket: PostSocketService,
-        private route: ActivatedRoute,
+        private route: ActivatedRoute
     ) {}
 
     ngOnInit() {
@@ -40,7 +40,7 @@ export class SocialFeedComponent implements OnInit {
             });
         })
         // show comments received via WebSocket
-        this.postSocket.onComment( (post: Post) => {
+        this.postSocket.onComment( (comment: Comment) => {
             this.postService.getAll(this.channelId)
                 .then((items) => {
                     this.items = items;
