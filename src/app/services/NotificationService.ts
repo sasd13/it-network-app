@@ -8,33 +8,31 @@ export class NotificationService {
 
     constructor(
         private user: LoggedUser, 
-    ) {
-    }
+    ) { }
 
     getAll(): Notification[] {
-        let serializedActivities = localStorage.getItem(this.itemKey);
-        if( serializedActivities ) {
-            return JSON.parse(serializedActivities);
+        let serializedNotifications = localStorage.getItem(this.itemKey);
+        if( serializedNotifications ) {
+            return JSON.parse(serializedNotifications);
         }
 
         return null;
     }
 
-    push(link: any, type: string) {
-        let activities = this.getAll();
+    push(type: string) {
+        let notifications = this.getAll();
 
-        if (!activities) {
-            activities = [];
+        if (!notifications) {
+            notifications = [];
         }
 
         let notification: Notification = new Notification();
         notification.type = type;
         notification.user = this.user;
         notification.creationTime = new Date().getTime();
-        notification.linked = link;
 
-        activities.push(notification);
-        localStorage.setItem(this.itemKey, JSON.stringify(activities));
+        notifications.push(notification);
+        localStorage.setItem(this.itemKey, JSON.stringify(notifications));
     }
 
     clean() {

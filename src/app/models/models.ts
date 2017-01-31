@@ -102,5 +102,4 @@ export class Notification {
     type: string;
     user: User;
     creationTime: number;
-    linked: any;
 }

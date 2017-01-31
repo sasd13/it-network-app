@@ -1,9 +1,6 @@
 <div class="notification" *ngIf="notificationMessage">
     <div class="header">
-        <div class="username">
-            {{notification.user.username}}
-        </div>
-        <div class="right">
+        <div class="left">
             <div class="date">{{notificationDate}}</div>
         </div>
     </div>
@@ -21,8 +18,8 @@
         display: block;
         border-radius: 4px;
         border: 1px solid #d8d8d8;
-        margin-top: 10px;
-        margin-left: 50px;
+        margin-top: 0px;
+        margin-left: 0px;
     }
     
     .header {
@@ -35,15 +32,15 @@
         padding: 0 15px;
     }
     
-    .right {
+    .left {
         width: 100%;
         display: flex;
         /*align-items: center;*/
-        justify-content: flex-end;
+        justify-content: flex-start;
     }
     
-    .right > .date {
-        padding-right: 50px;
+    .left > .date {
+        padding-left: 20px;
     }
     
     pre.message {
