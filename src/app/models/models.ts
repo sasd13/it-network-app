@@ -1,5 +1,5 @@
 export class UserLogin {
-    userName: string;
+    username: string;
     password: string;
 }
 
@@ -10,7 +10,7 @@ export interface AuthenticationResult {
 }
 
 export class UserRegistration {
-    userName: string;
+    username: string;
     password: string;
     email?: string;
     pictureUrl?: string;

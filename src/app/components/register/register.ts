@@ -24,11 +24,33 @@ export class RegisterComponent {
             return;
         }
 
-         // TODO promise returned:
-         this.registrationService.register(this.model)
-             .then( data => {
-                this.router.navigate(['/login']);
-        });
+        this.registrationService.usernameExists(this.model.username).
+            then( data => {
+                if (data) {
+                        this.takenUsername("taken");
+                } else {
+                        this.registrationService.register(this.model)
+                            .then( data => {
+                                this.router.navigate(['/login']);
+                        },
+                        error => {
+                            console.log("inner server error:"+error);
+                        });
+                }
+            });
+    }
+
+    takenUsername(error) {
+        if (!this.ngForm) { return; }
+        const form = this.ngForm.form;
+         // clear previous error message (if any)
+        for (const field in this.formErrors) {
+            this.formErrors[field] = '';
+            if (field === "username") {
+                const messages = this.validationMessages[field];
+                this.formErrors[field] += messages[error] + ' ';
+            }
+        }
     }
 
     formErrors = {
@@ -67,7 +89,8 @@ export class RegisterComponent {
 
     validationMessages = {
         'username': {
-            'required': 'Username is required.'
+            'required': 'Username is required.',
+            'taken' : 'Username is already taken'
         },
         'password': {
             'required': 'Password is required.'

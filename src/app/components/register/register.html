@@ -1,14 +1,14 @@
 <h2>Register</h2>
 <form name="form" #f="ngForm" (ngSubmit)="register()">
     <div class="form-group">
-        <label for="username">Username</label>
+        <label for="username">Username (required)</label>
         <input type="text" class="form-control" name="username" id="username"  [(ngModel)]="model.username" required />
         <div *ngIf="formErrors.username" class="alert alert-danger">
             {{ formErrors.username }}
         </div>
     </div>
     <div class="form-group">
-        <label for="password">Password</label>
+        <label for="password">Password (required)</label>
         <input type="text" class="form-control" name="password" id="password"  [(ngModel)]="model.password" required />
         <div *ngIf="formErrors.password" class="alert alert-danger">
             {{ formErrors.password }}

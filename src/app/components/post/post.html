@@ -1,5 +1,5 @@
 <div class="header">
-    <div class="user-picture">
+    <div class="user-picture" *ngIf="post.user.pictureUrl">
         <img src="{{post.user.pictureUrl}}" width="50" height="50" />
     </div>
     <div class="username">
