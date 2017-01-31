@@ -1,0 +1,54 @@
+<div class="notification" *ngIf="notificationMessage">
+    <div class="header">
+        <div class="username">
+            {{notification.user.username}}
+        </div>
+        <div class="right">
+            <div class="date">{{notificationDate}}</div>
+        </div>
+    </div>
+    <div class="body">
+        <pre class="message">{{notificationMessage}}</pre>
+    </div>
+    <div class="footer">
+
+    </div>
+</div>
+
+<style>
+    :host {
+        background: white;
+        display: block;
+        border-radius: 4px;
+        border: 1px solid #d8d8d8;
+        margin-top: 10px;
+        margin-left: 50px;
+    }
+    
+    .header {
+        padding: 15px;
+        display: flex;
+    }
+    
+    .username {
+        font-weight: bold;
+        padding: 0 15px;
+    }
+    
+    .right {
+        width: 100%;
+        display: flex;
+        /*align-items: center;*/
+        justify-content: flex-end;
+    }
+    
+    .right > .date {
+        padding-right: 50px;
+    }
+    
+    pre.message {
+        background: none;
+        margin: 0;
+        border: none;
+    }
+</style>

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PostSocketService, PostService } from 'services';
-import { Post, PostContent } from 'models';
+import { PostSocketService, PostService, NotificationService } from 'services';
+import { Post, PostContent, Comment } from 'models';
 
 const LABEL_POSTER = "Poster";
 const LABEL_COMMENTER = "Commenter";
@@ -15,11 +15,13 @@ export class SocialFeedComponent implements OnInit {
     channelId: string;
     postToComment: Post;
     postLabel: string;
+    @Output() activity = new EventEmitter<any>();
 
     constructor(
         private postService: PostService, 
         private postSocket: PostSocketService,
         private route: ActivatedRoute,
+        private notificationService: NotificationService
     ) {}
 
     ngOnInit() {
@@ -40,15 +42,19 @@ export class SocialFeedComponent implements OnInit {
                 .then((items) => {
                     this.items = items;
                     this.inComment(null);
+                    this.notificationService.push(post, 'post');
+                    this.activity.emit();
             },(error)=>{
                 console.log("ERROR: get posts via Web Socket");
             });
         })
         // show comments received via WebSocket
-        this.postSocket.onComment( (post: Post) => {
+        this.postSocket.onComment( (comment: Comment) => {
             this.postService.getAll(this.channelId)
                 .then((items) => {
                     this.items = items;
+                    this.notificationService.push(comment, 'comment');
+                    this.activity.emit();
             },(error)=>{
                 console.log("ERROR: get comments via Web Socket");
             });

@@ -6,6 +6,9 @@
         <router-outlet></router-outlet>
     </div>
     <user-list></user-list>
+    <div class="notifications" *ngFor="let notification of notifications">
+         <!--<notification [notification]="notification"></post>-->
+    </div>
 </main>
 
 <style>
