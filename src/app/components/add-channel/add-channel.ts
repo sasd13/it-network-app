@@ -10,20 +10,15 @@ import { ChannelService } from 'services';
     templateUrl: 'add-channel.html'
 })
 export class AddChannelComponent {
-    @ViewChild(ModalDirective) 
-    modal:ModalDirective;
-    @ViewChild(NgForm) 
-    ngForm:NgForm;
-
-    // event emitted to parent <menu>
+    @ViewChild(ModalDirective) modal: ModalDirective;
+    @ViewChild(NgForm) ngForm: NgForm;
     @Output() add = new EventEmitter<any>();
-    model =  {name: ''};
+    model = {name: ''};
     
     constructor(
         private channelService: ChannelService,
         private router : Router,
-    ) {
-    }
+    ) {}
 
     save() {
         if (this.ngForm.valid) {

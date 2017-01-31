@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Notification } from 'models';
-import { LoggedUser } from './User';
 
 @Injectable()
 export class NotificationService {
     itemKey = "$activities";
 
     constructor(
-        private user: LoggedUser, 
+
     ) { }
 
     getAll(): Notification[] {
@@ -28,10 +27,9 @@ export class NotificationService {
 
         let notification: Notification = new Notification();
         notification.type = type;
-        notification.user = this.user;
         notification.creationTime = new Date().getTime();
 
-        notifications.push(notification);
+        notifications.unshift(notification);
         localStorage.setItem(this.itemKey, JSON.stringify(notifications));
     }
 

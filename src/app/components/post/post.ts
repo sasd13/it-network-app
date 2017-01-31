@@ -1,6 +1,7 @@
-import { Component, Input, Output } from '@angular/core';
-import { Post, Comment } from 'models';
-import { PostService, PostSocketService, LoggedUser, MessageParser } from 'services';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Post } from 'models';
+import { PostService, MessageParser } from 'services';
 
 @Component({
   selector: 'post',
@@ -12,8 +13,7 @@ export class PostComponent {
     inputLabel: string;
     
     constructor(
-        private postSocket: PostSocketService, 
-        private user: LoggedUser,
+        private route: ActivatedRoute,
         private postService: PostService,
         private parser: MessageParser
     ) {}
@@ -26,5 +26,6 @@ export class PostComponent {
 
     toLike() {
         this.post.liked = ! this.post.liked;
+        this.postService.like(this.post);
     }
 }

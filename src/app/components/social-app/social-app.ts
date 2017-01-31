@@ -1,7 +1,6 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Channel, User, Post, Like, Comment, Notification } from 'models';
 import { ChannelService, PostSocketService, NotificationService } from 'services';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'social-app',
@@ -13,7 +12,6 @@ export class SocialAppComponent implements OnInit {
     
     constructor(
         private channelService: ChannelService,
-        private route: ActivatedRoute,
         private postSocketService: PostSocketService,
         private notificationService: NotificationService
     ) {
@@ -38,7 +36,7 @@ export class SocialAppComponent implements OnInit {
         });
 
         this.postSocketService.onLike( (like: Like) => {
-            this.pushNotification('post');
+            this.pushNotification('like');
             this.refreshNotifications();
         });
 

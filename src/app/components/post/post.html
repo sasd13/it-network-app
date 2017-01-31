@@ -30,14 +30,14 @@
                 </object >
         </div>
     </div>
-    <div class="social-app-inputs">
-        <user-inputs [channelId]="channelId" (sendPost)="refreshPosts($event)" [inputLabel]="inputLabel" [postToComment]="post"></user-inputs>
-    </div>
 </div>
 <div class="footer">
     <!-- Itérer sur les commentaires -->
     <div *ngFor="let comment of post.comments">
         <post-comment [comment]="comment"></post-comment>
+    </div>
+    <div class="social-app-inputs">
+        <user-inputs [channelId]="channelId" [inputLabel]="inputLabel" [postToComment]="post"></user-inputs>
     </div>
 </div>
 <style>

@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserLogin } from 'models';
 import { NgForm } from '@angular/forms';
-
 import { AuthenticationService } from '../../services/index';
 
 @Component({
@@ -11,8 +10,8 @@ import { AuthenticationService } from '../../services/index';
 })
 export class LoginComponent {
     model = new UserLogin();
-    @ViewChild(NgForm)
-    ngForm: NgForm;
+    @ViewChild(NgForm) ngForm: NgForm;
+    
     constructor(
             private authService: AuthenticationService,
             private router : Router

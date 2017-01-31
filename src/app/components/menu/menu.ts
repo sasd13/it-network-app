@@ -13,12 +13,12 @@ export class MenuComponent {
     constructor(
          private channelService: ChannelService,
          private authService : AuthenticationService
-    ) {
-    }
+    ) {}
 
     async addChannel(data) {
         this.channels = await this.channelService.getAll();
     }
+    
     logout(){
         this.authService.logout();
     }

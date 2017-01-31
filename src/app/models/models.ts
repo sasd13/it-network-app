@@ -100,6 +100,5 @@ export class YoutubePostContent extends PostContent<YoutubeContent>{
 
 export class Notification {
     type: string;
-    user: User;
     creationTime: number;
 }

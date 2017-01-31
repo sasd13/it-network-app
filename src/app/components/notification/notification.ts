@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Notification } from 'models';
 
-const MESSAGE_CHANNEL = " has created a new channel";
-const MESSAGE_USER = " is connected";
-const MESSAGE_POST = " has posted";
-const MESSAGE_LIKE = " has liked a post";
-const MESSAGE_COMMENT = " has commented a post";
+const MESSAGE_NEW_CHANNEL = "New channel !";
+const MESSAGE_NEW_USER = "New user connected";
+const MESSAGE_NEW_POST = "New post !";
+const MESSAGE_NEW_LIKE = "New like !";
+const MESSAGE_NEW_COMMENT = "New comment !";
 
 @Component({
     selector: 'notification',
@@ -16,7 +16,7 @@ export class NotificationComponent implements OnInit {
     notificationDate: String;
     notificationMessage: String;
 
-    constructor() { }
+    constructor() {}
 
     ngOnInit() {
         this.notificationDate = new Date(this.notification.creationTime).toLocaleString();
@@ -26,15 +26,15 @@ export class NotificationComponent implements OnInit {
     formatMessage(): string {
         switch (this.notification.type) {
             case 'channel':
-                return this.notification.user.username + MESSAGE_CHANNEL;
+                return MESSAGE_NEW_CHANNEL;
             case 'user':
-                return this.notification.user.username + MESSAGE_USER;
+                return MESSAGE_NEW_USER;
             case 'post':
-                return this.notification.user.username + MESSAGE_POST;
+                return MESSAGE_NEW_POST;
             case 'like':
-                return this.notification.user.username + MESSAGE_LIKE;
+                return MESSAGE_NEW_LIKE;
             case 'comment':
-                return this.notification.user.username + MESSAGE_COMMENT;
+                return MESSAGE_NEW_COMMENT;
             default:
                 return null;
         }
