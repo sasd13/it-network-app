@@ -1,12 +1,12 @@
 <div class="header">
     <div class="user-picture">
-        <img src="{{post.user.pictureUrl}}" width="50" height="50"/>
+        <img src="{{post.user.pictureUrl}}" width="50" height="50" />
     </div>
     <div class="username">
         {{post.user.username}}
     </div>
     <div class="right">
-        <div class="date">{{postDate}}</div>        
+        <div class="date">{{postDate}}</div>
         <div class="actions"><a [class.liked]="post.liked" (click)="toLike()"><i class="glyphicon glyphicon-heart"></i></a></div>
     </div>
 </div>
@@ -14,10 +14,10 @@
     <pre class="message">{{post.message}}</pre>
     <div *ngIf="post.content">
         <div class="image" *ngIf="post.content.type === 'picture'">
-            <a href="{{post.content.value.mediaUrl}}" target="_blank"> <img src="{{post.content.value.mediaUrl}}" width="200" height="150"/></a>
+            <a href="{{post.content.value.mediaUrl}}" target="_blank"> <img src="{{post.content.value.mediaUrl}}" width="200" height="150" /></a>
         </div>
         <div>
-            <a href="{{post.content.value.mediaUrl}}" target="_blank"> 
+            <a href="{{post.content.value.mediaUrl}}" target="_blank">
                 <video class="video" width="320" height="240" autoplay>
                     <source src="{{post.content.value.mediaUrl}}" type="video/mp4">
                     <source src="{{post.content.value.mediaUrl}}" type="video/ogv">
@@ -26,12 +26,13 @@
             </a>
         </div>
         <div class="image" *ngIf="post.content.type === 'youtube'">
-                <object width="320" height="240"
-                    data="{{post.content.value.mediaUrl}}">
+            <object width="320" height="240" data="{{post.content.value.mediaUrl}}">
                 </object >
         </div>
     </div>
-    <button class="btn btn-default" [disabled]="!post.message" (click)="comment()">Commenter</button>
+    <div class="social-app-inputs">
+        <user-inputs [channelId]="channelId" (sendPost)="refreshPosts($event)" [inputLabel]="inputLabel" [postToComment]="post"></user-inputs>
+    </div>
 </div>
 <div class="footer">
     <!-- Itérer sur les commentaires -->

@@ -3,9 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { PostSocketService, PostService } from 'services';
 import { Post, PostContent } from 'models';
 
-const LABEL_POSTER = "Poster";
-const LABEL_COMMENTER = "Commenter";
-
 @Component({
   selector: 'social-feed', 
   templateUrl: 'social-feed.html'
@@ -13,8 +10,7 @@ const LABEL_COMMENTER = "Commenter";
 export class SocialFeedComponent implements OnInit {
     items: Post[] = [];
     channelId: string;
-    postToComment: Post;
-    postLabel: string;
+    inputLabel: string;
 
     constructor(
         private postService: PostService, 
@@ -23,7 +19,7 @@ export class SocialFeedComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-        this.postLabel = LABEL_POSTER;
+        this.inputLabel = "Poster";
 
         this.route.params
             .subscribe((params) => {
@@ -39,7 +35,6 @@ export class SocialFeedComponent implements OnInit {
             this.postService.getAll(this.channelId)
                 .then((items) => {
                     this.items = items;
-                    this.inComment(null);
             },(error)=>{
                 console.log("ERROR: get posts via Web Socket");
             });
@@ -63,13 +58,7 @@ export class SocialFeedComponent implements OnInit {
                     .getAll(params['id'])
                     .then((items) => {
                         this.items = items;
-                        this.inComment(null);
                     });
             })
-    }
-
-    inComment(data) {
-        this.postLabel = data ? LABEL_COMMENTER : LABEL_POSTER;
-        this.postToComment = data;
-    }    
+    }  
 }

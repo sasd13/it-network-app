@@ -1,7 +1,7 @@
 <form name="form" (ngSubmit)="send(); f.reset()" #f="ngForm">
     <textarea name="message" class="form-control" rows="3" [(ngModel)]="message" required></textarea>
     <div class="user-inputs-action">
-        <button class="btn btn-default" [disabled]="!message" type="submit">{{postLabel}}</button>
+        <button class="btn btn-default" [disabled]="!message" type="submit">{{inputLabel}}</button>
     </div>
 </form>
 <style>
