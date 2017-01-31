@@ -69,7 +69,7 @@
 8. Ajouter le bouton like                                                         OK
 
 ### Level II
-9. Retirer les urls des messages parsés pour ne restituer que son contenu
+9. Retirer les urls des messages parsés pour ne restituer que son contenu 
 
 ### Level III
 10. Pouvoir parser plusieurs type de contenus dans un seul poste

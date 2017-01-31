@@ -2,8 +2,8 @@
     <!-- "model" du parent "menu" est transmit au variable "channels", qui est visible a fils "add-channel"-->
     <add-channel (add)="addChannel($event)"></add-channel>
     <!-- itérer et fournir l'id -->
-    <div *ngFor="let channel of channels">
-        <a  class="list-group-item" [routerLink]="['/channel/', channel.id]">
+    <div *ngFor="let channel of channels; let i = index">
+        <a class="list-group-item" [routerLink]="['/channel/', channel.id]">
             {{channel.name}}
         </a>
     </div>  
