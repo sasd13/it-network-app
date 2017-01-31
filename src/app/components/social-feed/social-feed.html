@@ -1,11 +1,11 @@
 <div class="social-app-feed">
     <!-- Itérer sur les postes-->
     <div *ngFor="let postItem of items">
-         <post [post]="postItem" (inComment)="inComment($event)"></post>
+         <post [post]="postItem"></post>
     </div>
 </div>
 <div class="social-app-inputs">
-    <user-inputs [channelId]="channelId" (sendPost)="refreshPosts($event)" [postLabel]="postLabel" [postToComment]="postToComment"></user-inputs>
+    <user-inputs [channelId]="channelId" (sendPost)="refreshPosts($event)" [inputLabel]="inputLabel"></user-inputs>
 </div>
 <style>
     :host {

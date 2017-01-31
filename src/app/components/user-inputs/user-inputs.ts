@@ -8,10 +8,9 @@ import { ActivatedRoute } from '@angular/router';
     templateUrl: 'user-inputs.html'
 })
 export class UserInputsComponent {
-    @Input() postLabel: string;
+    @Input() inputLabel: string;
     @Input() channelId: string;
     message:string;
-    // event emitted to parent <social-feed>
     @Output() sendPost = new EventEmitter<any>();
     @Input() postToComment: Post;
 
