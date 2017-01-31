@@ -38,7 +38,7 @@
 
 #### Level II
 4. Afficher les messages d'erreurs de validation  pour chaque champs            OK
-5. Gérer les username déjà utilisés                                             
+5. Gérer les username déjà utilisés                                             OK
 
 
 ### Channel
@@ -51,8 +51,8 @@
 
 #### Level II
 
-4. Sélectionner par défaut le premier channel de la liste
-5. Ajouter ajouter les nouveaux channels dynamiquement
+4. Sélectionner par défaut le premier channel de la liste                       OK       
+5. Ajouter les nouveaux channels dynamiquement                                  OK
 
 ### Post 
 
@@ -60,9 +60,9 @@
 
 1. Afficher les postes reçues pour le channel courant                             OK
 2. Afficher l'auteur des messages                                                 OK
-3. Afficher la date du postes
+3. Afficher la date du postes                                                     OK
 4. Insérer les nouveaux postes reçues via WebSocket                               OK             
-5. Afficher une image si le message contient une url vers une image
+5. Afficher une image si le message contient une url vers une image               OK
 6. Afficher une video si le message contient une url vers une vidéo               OK
         (https://www.html5rocks.com/en/tutorials/video/basics/devstories.mp4)
 7. Afficher le player de youtube si le message contient un lien youtube         !!! marche pas !!!
@@ -89,13 +89,13 @@
 ### Activités et notifications 
 
 ### Level I
-1. Créer un NotificationService
-2. Lister les activités dans le menu à droite
-3. Ajouter une activté lors d'un nouveau poste via le NotificationService
-4. Ajouter une activté lors d'un commentaire sur un poste via le NotificationService
-5. Ajouter une activté lorsqu'un membre se connecte via le NotificationService
-6. Ajouter une activité lors d'un like via le NotificationService
-7. Ajouter une activité lors de l'ajout d'un channel via le NotificationService
+1. Créer un NotificationService                                                             OK
+2. Lister les activités dans le menu à droite                                               OK
+3. Ajouter une activté lors d'un nouveau poste via le NotificationService                   OK
+4. Ajouter une activté lors d'un commentaire sur un poste via le NotificationService        OK
+5. Ajouter une activté lorsqu'un membre se connecte via le NotificationService              OK
+6. Ajouter une activité lors d'un like via le NotificationService                           OK
+7. Ajouter une activité lors de l'ajout d'un channel via le NotificationService             OK
 
 ### Level II
 8. Afficher une popup de notification avec [angular2-notifications](https://github.com/flauc/angular2-notifications)
