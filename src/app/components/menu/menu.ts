@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Channel } from 'models';
 import { ChannelService } from 'services';
+import { AuthenticationService } from '../../services/index';
 
 @Component({
     selector: 'menu',
@@ -11,10 +12,14 @@ export class MenuComponent {
 
     constructor(
          private channelService: ChannelService,
+         private authService : AuthenticationService
     ) {
     }
 
     async addChannel(data) {
         this.channels = await this.channelService.getAll();
+    }
+    logout(){
+        this.authService.logout();
     }
 }

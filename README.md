@@ -19,9 +19,9 @@
 
 #### Level I
 
-1. Faire le formulaire de login
-2. Rendre username et le mot de passe obligatoire
-3. Rediriger l'utilisateur sur /
+1. Faire le formulaire de login                                             OK
+2. Rendre username et le mot de passe obligatoire                           OK
+3. Rediriger l'utilisateur sur /                                            OK
 
 #### Level II
 

@@ -6,9 +6,12 @@
         <a  class="list-group-item" [routerLink]="['/channel/', channel.id]" >
             {{channel.name}}
         </a>
-    </div>
-    
+    </div>  
 </nav>
+
+<div style="text-align:center;">
+    <button (click)="logout()">Logout</button>
+</div>
 
 <style>
     :host {
