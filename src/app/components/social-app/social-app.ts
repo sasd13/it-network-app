@@ -23,9 +23,9 @@ export class SocialAppComponent implements OnInit {
 
     async ngOnInit() {
         this.channels = await this.channelService.getAll();
-        this.route.url
-            .subscribe((url) => {
-                if (url[0].path === "channel") {
+        this.route.params
+            .subscribe((params) => {
+                if (!params['id']) {
                     this.router.navigate(['/channel/'+this.channels[0].id]);
                 }
             });
@@ -38,7 +38,6 @@ export class SocialAppComponent implements OnInit {
             },(error)=>{
                 console.log("ERROR: get channels via Web Socket");
             });
-
             this.pushNotification('channel');
             this.refreshNotifications();
         });

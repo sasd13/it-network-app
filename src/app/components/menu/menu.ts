@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Channel } from 'models';
 import { ChannelService } from 'services';
-import { AuthenticationService } from '../../services/index';
+import { AuthenticationService, NotificationService } from '../../services/index';
 
 @Component({
     selector: 'menu',
@@ -12,7 +12,8 @@ export class MenuComponent {
 
     constructor(
          private channelService: ChannelService,
-         private authService : AuthenticationService
+         private authService : AuthenticationService,
+         private notifService : NotificationService
     ) {}
 
     async addChannel(data) {
@@ -21,5 +22,6 @@ export class MenuComponent {
     
     logout(){
         this.authService.logout();
+        this.notifService.clean();
     }
 }
