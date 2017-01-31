@@ -7,7 +7,7 @@
     </div>
     <div class="right">
         <div class="date">{{postDate}}</div>        
-        <div class="actions"><a [class.liked]="post.liked"><i class="glyphicon glyphicon-heart"></i></a></div>
+        <div class="actions"><a [class.liked]="post.liked" (click)="toLike()"><i class="glyphicon glyphicon-heart"></i></a></div>
     </div>
 </div>
 <div class="body">
