@@ -1,11 +1,13 @@
 <div class="header">
     <div class="user-picture">
+         <img src="{{comment.user.pictureUrl}}" width="50" height="50"/>
     </div>
     <div class="username">
         {{comment.user.username}}
     </div>
     <div class="right">
         <div class="date">{{commentDate}}</div>
+        <div class="actions"><a [class.liked]="comment.liked" (click)="toLike()"><i class="glyphicon glyphicon-heart"></i></a></div>
     </div>
 </div>
 <div class="body">

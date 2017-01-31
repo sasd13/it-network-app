@@ -26,4 +26,8 @@ export class PostComponent {
     comment() {
         this.inComment.emit(this.post);
     }
+
+    toLike() {
+        this.post.liked = ! this.post.liked;
+    }
 }

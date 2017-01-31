@@ -18,4 +18,7 @@ export class PostCommentComponent{
         this.comment.content = this.parser.parse(this.comment);
         this.commentDate = new Date(this.comment.creationTime).toLocaleString();
     }
+    toLike() {
+        this.comment.liked = ! this.comment.liked;
+    }
 }

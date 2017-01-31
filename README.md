@@ -19,9 +19,9 @@
 
 #### Level I
 
-1. Faire le formulaire de login
-2. Rendre username et le mot de passe obligatoire
-3. Rediriger l'utilisateur sur /
+1. Faire le formulaire de login                                             OK
+2. Rendre username et le mot de passe obligatoire                           OK
+3. Rediriger l'utilisateur sur /                                            OK
 
 #### Level II
 
@@ -32,9 +32,9 @@
 
 #### Level I
 
-1. Faire le formulaire pour l'ajout d'un user
-2. Rendre username et le mot de passe obligatoire
-3. En cas de succès, rediriger l'utilisateur sur /login
+1. Faire le formulaire pour l'ajout d'un user                                    OK
+2. Rendre username et le mot de passe obligatoire                                OK
+3. En cas de succès, rediriger l'utilisateur sur /login                          OK
 
 #### Level II
 4. Afficher les messages d'erreurs de validation  pour chaque champs
@@ -45,9 +45,9 @@
 
 #### Level I
 
-1. Afficher la liste des channels dans le menu
-2. Pouvoir créer un nouveau channel                 
-3. Naviguer sur un channel au clic dans le menu
+1. Afficher la liste des channels dans le menu                                    OK
+2. Pouvoir créer un nouveau channel                                               OK       
+3. Naviguer sur un channel au clic dans le menu                                   OK
 
 #### Level II
 
@@ -58,14 +58,15 @@
 
 ### Level I
 
-1. Afficher les postes reçues pour le channel courant
-2. Afficher l'auteur des messages
+1. Afficher les postes reçues pour le channel courant                             OK
+2. Afficher l'auteur des messages                                                 OK
 3. Afficher la date du postes
-4. Insérer les nouveaux postes reçues via WebSocket                 
+4. Insérer les nouveaux postes reçues via WebSocket                               OK             
 5. Afficher une image si le message contient une url vers une image
-6. Afficher une video si le message contient une url vers une vidéo (https://www.html5rocks.com/en/tutorials/video/basics/devstories.mp4)
+6. Afficher une video si le message contient une url vers une vidéo               OK
+        (https://www.html5rocks.com/en/tutorials/video/basics/devstories.mp4)
 7. Afficher le player de youtube si le message contient un lien youtube         !!! marche pas !!!
-8. Ajouter le bouton like                                       !!! TODO !!!
+8. Ajouter le bouton like                                                         OK
 
 ### Level II
 9. Retirer les urls des messages parsés pour ne restituer que son contenu
@@ -77,13 +78,13 @@
 ### Commentaires
 
 ### Level I
-1. Pouvoir commenter un poste
-2. Afficher les commentaires d'un poste 
-3. Afficher l'auteur du commentaires
-4. Insérer les nouveaux commentaires reçues via WebSocket
+1. Pouvoir commenter un poste                                                    OK
+2. Afficher les commentaires d'un poste                                          OK
+3. Afficher l'auteur du commentaires                                             OK
+4. Insérer les nouveaux commentaires reçues via WebSocket                        OK
 
 ### Level II
-5. Parser les commentaires comme les postes : extraire les images, vidéos...
+5. Parser les commentaires comme les postes : extraire les images, vidéos...     OK
 
 ### Activités et notifications 
 
